@@ -41,7 +41,7 @@ npx @modelcontextprotocol/inspector poetry run python postgres-mcp-server/main.p
 
 This opens a web UI where you can:
 - View available tools under the **Tools** tab
-- Test `execute_sql` and `get_schema` with parameters
+- Test `execute_sql`
 - See real-time results
 
 ### Quick Test
@@ -58,19 +58,20 @@ Press `Ctrl+C` to stop. No errors = working correctly.
 
 ## Connect to Cursor
 
-Add to your Cursor MCP config:
+Add to your Cursor MCP config (global settings):
 
 ```json
 {
   "mcpServers": {
     "postgres": {
       "command": "poetry",
-      "args": ["run", "python", "postgres-mcp-server/main.py"],
-      "cwd": "/absolute/path/to/postgres-mcp-server"
+      "args": ["-C", "/absolute/path/to/postgres-mcp-server", "run", "python", "postgres-mcp-server/main.py"]
     }
   }
 }
 ```
+
+Replace `/absolute/path/to/postgres-mcp-server` with your actual project path.
 
 ---
 
