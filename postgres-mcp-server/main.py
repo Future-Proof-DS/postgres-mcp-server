@@ -18,19 +18,19 @@ DB_CONFIG = {
     "port": os.getenv("DB_PORT", "5432"),
 }
 
-def run_query(sql: str) -> List[Dict]:
-    """Execute SQL and return results as list of dictionaries."""
-    with psycopg2.connect(**DB_CONFIG) as conn:
-        with conn.cursor() as cur:
-            cur.execute(sql)
-            colnames = [desc[0] for desc in cur.description]
-            rows = [dict(zip(colnames, row)) for row in cur.fetchall()]
-    return rows
+# TODO: Implement a second MCP tool called `execute_sql`
+# This function should:
+#  - Take a SQL query as input (string)
+#  - Run the query against the Postgres database
+#  - Return the rows as a list of dictionaries (column_name → value)
+# Hint: Use the same psycopg2 connection pattern shown in `get_schema`.
 
-@mcp.tool()
-async def execute_sql(sql: str) -> List[Dict]:
-    """Execute a SQL query against the practice Postgres database."""
-    return run_query(sql)
+
+# TODO: Implement a third MCP tool called `list_tables`
+# This function should:
+#  - Take no inputs
+#  - Return the list of table names available in the current database
+# Hint: Query `information_schema.tables` and filter for `table_schema = 'public'`.
 
 @mcp.tool()
 async def get_schema(table: str) -> List[Dict]:
