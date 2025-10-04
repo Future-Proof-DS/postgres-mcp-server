@@ -4,10 +4,12 @@ import psycopg2
 from mcp.server.fastmcp import FastMCP
 from dotenv import load_dotenv
 
+# Load environment variables from .env file
 load_dotenv()
 
 mcp = FastMCP("postgres-server")
 
+# Database connection configuration from environment variables
 DB_CONFIG = {
     "dbname": os.getenv("DB_NAME", "practice_db"),
     "user": os.getenv("DB_USER", "postgres"),
@@ -17,6 +19,7 @@ DB_CONFIG = {
 }
 
 def run_query(sql: str) -> List[Dict]:
+    """Execute SQL and return results as list of dictionaries."""
     with psycopg2.connect(**DB_CONFIG) as conn:
         with conn.cursor() as cur:
             cur.execute(sql)
@@ -44,6 +47,7 @@ async def get_schema(table: str) -> List[Dict]:
     return rows
 
 def main():
+    # Run MCP server using stdio transport for AI assistant integration
     mcp.run(transport="stdio")
 
 if __name__ == "__main__":
