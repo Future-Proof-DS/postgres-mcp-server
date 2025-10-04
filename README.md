@@ -41,7 +41,7 @@ npx @modelcontextprotocol/inspector poetry run python postgres-mcp-server/main.p
 
 This opens a web UI where you can:
 - View available tools under the **Tools** tab
-- Test `execute_sql`
+- Test `get_schema`
 - See real-time results
 
 ### Quick Test
@@ -54,7 +54,7 @@ Press `Ctrl+C` to stop. No errors = working correctly.
 
 ## Available Tools
 
-**`execute_sql(sql: str)`** - Execute SQL queries
+**`get_schema()`** - Get database schema
 
 ## Connect to Cursor
 
