@@ -1,15 +1,19 @@
 from typing import List, Dict
+import os
 import psycopg2
 from mcp.server.fastmcp import FastMCP
+from dotenv import load_dotenv
+
+load_dotenv()
 
 mcp = FastMCP("postgres-server")
 
 DB_CONFIG = {
-    "dbname": "practice_db",
-    "user": "postgres",
-    "password": "password123",
-    "host": "localhost",
-    "port": "5432",
+    "dbname": os.getenv("DB_NAME", "practice_db"),
+    "user": os.getenv("DB_USER", "postgres"),
+    "password": os.getenv("DB_PASSWORD", "password123"),
+    "host": os.getenv("DB_HOST", "localhost"),
+    "port": os.getenv("DB_PORT", "5432"),
 }
 
 def run_query(sql: str) -> List[Dict]:
