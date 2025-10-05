@@ -7,6 +7,7 @@ from dotenv import load_dotenv
 # Load environment variables from .env file
 load_dotenv()
 
+# Initializes your MCP server instance. It's used to register your tools.
 mcp = FastMCP("postgres-server")
 
 # Database connection configuration from environment variables
