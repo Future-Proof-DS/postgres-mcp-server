@@ -10,6 +10,12 @@ Model Context Protocol (MCP) connects AI assistants to external tools and data. 
 
 ### 1. Install Dependencies
 
+> **Note:** This project uses Poetry for dependency management. If you don't have Poetry installed, you can install it with:
+> ```bash
+> curl -sSL https://install.python-poetry.org | python3 -
+> ```
+> See the [official Poetry documentation](https://python-poetry.org/docs/#installation) for alternative installation methods.
+
 ```bash
 poetry install
 ```
