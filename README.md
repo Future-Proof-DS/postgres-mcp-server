@@ -8,6 +8,8 @@ Model Context Protocol (MCP) connects AI assistants to external tools and data. 
 
 ## Setup
 
+**Python version:** This project currently supports Python 3.10–3.13. Python 3.14 is excluded due to upstream dependency wheel support (e.g., `psycopg2-binary` and `pydantic-core`).
+
 ### 1. Install Dependencies
 
 > **Note:** This project uses Poetry for dependency management. If you don't have Poetry installed, you can install it with:
