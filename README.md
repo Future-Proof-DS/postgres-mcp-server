@@ -43,6 +43,8 @@ DB_PORT=5432
 
 ### MCP Inspector (Recommended)
 
+> **Note:** The Inspector runs via `npx`, so you need Node.js (which includes npm). If you don't have it installed, get it from the official Node.js installer.
+
 ```bash
 npx @modelcontextprotocol/inspector poetry run python postgres-mcp-server/main.py
 ```
